@@ -31,7 +31,7 @@ public class MyConfig {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
             dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-            dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/my_db?useSSL=false&amp;"
+            dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/my_db?useSSL=false&"
                     + "serverTimezone=UTC");
             dataSource.setUser("bestuser");
             dataSource.setPassword("bestuser");
@@ -45,7 +45,7 @@ public class MyConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.mihome.etity");
+        sessionFactory.setPackagesToScan("com.mihome.entity");
 
         Properties hibernateProporties = new Properties();
         hibernateProporties.setProperty("hibernate.dialect",
