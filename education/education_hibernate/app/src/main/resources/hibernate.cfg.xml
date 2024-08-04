@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/my_db</property>
+        <property name="connection.username">bestuser</property>
+        <property name="connection.password">bestuser</property>
+
+        <!-- JDBC connection pool settings -->
+<!--        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>-->
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!--показывает запрос в логе-->
+        <property name="hibernate.show_sql">true</property>
+        
+        <!--показывает запрос не в строчку (удобнее для чтения, если большой запрос)-->
+        <property name="hibernate.format_sql">true</property> 
+        
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name = "current_session_context_class">thread</property>
+        
+<!--        выпадающий список в ентити классе "@Column(name='???')" + 
+        + можно не прописывать в "SessionFactory = new Configuration()
+        .addAnnotatedClass(Employee.class)" -->
+        <mapping class="com.mihome.education_hibernate.one_table.entity.Employee"></mapping>
+        
+    </session-factory>
+</hibernate-configuration>
+
