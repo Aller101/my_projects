@@ -6,7 +6,13 @@
     <session-factory>
         
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/my_db</property>
+        
+        <!--для package one_table>-->
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/my_db</property>-->
+        
+        <!--для package one_to_one>-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/cars_db</property>
+        
         <property name="connection.username">bestuser</property>
         <property name="connection.password">bestuser</property>
 
@@ -31,7 +37,14 @@
 <!--        выпадающий список в ентити классе "@Column(name='???')" + 
         + можно не прописывать в "SessionFactory = new Configuration()
         .addAnnotatedClass(Employee.class)" -->
-        <mapping class="com.mihome.education_hibernate.one_table.entity.Employee"></mapping>
+        
+        <!--для package one_table>-->
+        <!--<mapping class="com.mihome.education_hibernate.one_table.entity.Employee"></mapping>-->
+        
+        
+        <!--для package one_to_one>-->
+        <mapping class="com.mihome.education_hibernate.one_to_one.entity.Car"></mapping>
+        <mapping class="com.mihome.education_hibernate.one_to_one.entity.Engine"></mapping>
         
     </session-factory>
 </hibernate-configuration>
