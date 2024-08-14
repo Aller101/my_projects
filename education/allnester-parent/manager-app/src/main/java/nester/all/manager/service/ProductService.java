@@ -19,5 +19,7 @@ public interface ProductService {
     public Product createProduct(String title, String details);
 
     public Optional<Product> findProduct(int productId);
+
+    public void updateProduct(Integer id, String title, String details);
     
 }

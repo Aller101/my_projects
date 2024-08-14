@@ -25,6 +25,11 @@
                         <a data-th-href="@{/catalogue/products/{productId}(productId=${product.id})}"
                            data-th-text="${product.title}"></a>
                     </td>
+                    <td>
+                        <form method="get" data-th-action="@{/catalogue/products/{productId}/edit(productId=${product.id})}">
+                            <button type="submit">update</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
