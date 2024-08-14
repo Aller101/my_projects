@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>[[${product.title}]] &#9731;</title>
+
+    </head>
+    <body>
+
+        <a data-th-href="@{/catalogue/products/list}">return to back</a>
+        <br> 
+        <h1 data-th-text="${product.title}"></h1>
+
+        <ul>
+            <li><strong>id</strong>: <span data-th-text="${product.id}"></span></li>
+            <li><strong>title</strong>: <span data-th-text="${product.title}"></span></li>
+            <li><strong>details</strong>: <span data-th-text="${product.details}"></span></li>
+        </ul>
+
+
+    </body>
+</html>

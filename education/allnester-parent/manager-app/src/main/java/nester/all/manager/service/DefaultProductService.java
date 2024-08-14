@@ -5,6 +5,7 @@
 package nester.all.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import nester.all.manager.entity.Product;
 import nester.all.manager.repository.ProductRepository;
@@ -24,6 +25,11 @@ public class DefaultProductService implements ProductService {
     @Override
     public Product createProduct(String title, String details) {
         return this.productRepository.save(new Product(null, title, details)); 
+    }
+
+    @Override
+    public Optional<Product> findProduct(int productId) {
+        return this.productRepository.findById(productId);
     }
     
 }

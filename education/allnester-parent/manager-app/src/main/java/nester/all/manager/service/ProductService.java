@@ -5,6 +5,7 @@
 package nester.all.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 import nester.all.manager.entity.Product;
 
 /**
@@ -16,5 +17,7 @@ public interface ProductService {
     public List<Product> findAllProducts();
 
     public Product createProduct(String title, String details);
+
+    public Optional<Product> findProduct(int productId);
     
 }
