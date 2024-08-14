@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import nester.all.manager.controller.payload.UpdateProductPayload;
 import nester.all.manager.entity.Product;
 import nester.all.manager.service.ProductService;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -50,17 +51,20 @@ public class ProductController {
 
     @GetMapping("/edit")
     public String getProductEditPage() {
-        return "catalogue/products/edit";
+        return "/catalogue/products/edit";
     }
 
     @PostMapping("/edit")
-    public String updateProduct(@ModelAttribute("product") Product product,
+    public String updateProduct(@ModelAttribute(name = "product", binding = false) Product product,
             @Valid UpdateProductPayload payload,
-            Model model, BindingResult bindingResult) {
+            BindingResult bindingResult, Model model) {//pzdc ска BindingResult 
+                                                      //должен идти сразу после
+                                                     //@Valid в параметрах
+                                                    // (у меня была Model между ними)
         if (bindingResult.hasErrors()) {
+            model.addAttribute("payload", payload);
             model.addAttribute("errors", bindingResult.getAllErrors().stream()
                     .map(ObjectError::getDefaultMessage).toList());
-            model.addAttribute("payload", payload);
             return "catalogue/products/edit";
         } else {
             this.productService.updateProduct(product.getId(), payload.title(), payload.details());

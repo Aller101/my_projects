@@ -10,7 +10,7 @@
 
         <a data-th-href="@{/catalogue/products/{productId}(productId=${product.id})}">return to product</a>
         <br> 
-        <h1>Edit product &laquo;[[${product.title}]]&laquo;</h1>
+        <h1>Edit product &laquo;[[${product.title}]]&raquo;</h1>
 
         <div data-th-if="${errors}">
             <h2>errors:</h2>
@@ -23,13 +23,13 @@
             <label>
                 Title: 
                 <br>
-                <input type="text" name="title" data-th-value="${payload != null? payload.title : product.title}">
+                <input type="text" name="title" data-th-value="${payload != null ? payload.title : product.title}">
             </label>
             <br>
             <label>
                 Details: 
                 <br>
-                <textarea name="details" data-th-text="${payload != null? payload.details : product.details}"></textarea>
+                <textarea name="details" data-th-text="${payload != null ? payload.details : product.details}"></textarea>
             </label>      
             <br>
             <!--<input type="submit" value="create">-->
