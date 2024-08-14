@@ -4,6 +4,7 @@
  */
 package nester.all.manager.controller;
 
+import nester.all.manager.controller.payload.NewProductPayload;
 import lombok.RequiredArgsConstructor;
 import nester.all.manager.entity.Product;
 import nester.all.manager.service.ProductService;
