@@ -4,10 +4,18 @@
  */
 package nester.all.manager.controller.payload;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
  *
  * @author alekseynesterov
  */
-public record UpdateProductPayload(String title, String details) {
+public record UpdateProductPayload(
+        @NotNull(message = "{catalogue.products.update.errors.title_is_null}")
+        @Size(min = 2, max = 30, message = "{catalogue.products.update.errors.title_size_invalid}")
+        String title,
+        @Size(max = 200, message = "{catalogue.products.update.errors.details_size_invalid}")
+        String details) {
 
 }
