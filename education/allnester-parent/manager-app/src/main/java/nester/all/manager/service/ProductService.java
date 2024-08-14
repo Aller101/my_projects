@@ -21,5 +21,7 @@ public interface ProductService {
     public Optional<Product> findProduct(int productId);
 
     public void updateProduct(Integer id, String title, String details);
+
+    public void deleteProduct(Integer id);
     
 }

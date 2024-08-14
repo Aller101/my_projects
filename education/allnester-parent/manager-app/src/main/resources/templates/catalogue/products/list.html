@@ -16,6 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th>Title</th>
+                    <th align="center">Operations</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,11 @@
                     <td>
                         <form method="get" data-th-action="@{/catalogue/products/{productId}/edit(productId=${product.id})}">
                             <button type="submit">update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" data-th-action="@{/catalogue/products/{productId}/delete(productId=${product.id})}">
+                            <button type="submit">delete</button>
                         </form>
                     </td>
                 </tr>
