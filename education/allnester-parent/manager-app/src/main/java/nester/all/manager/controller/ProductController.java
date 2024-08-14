@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import nester.all.manager.controller.payload.UpdateProductPayload;
 import nester.all.manager.entity.Product;
 import nester.all.manager.service.ProductService;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -57,10 +56,7 @@ public class ProductController {
     @PostMapping("/edit")
     public String updateProduct(@ModelAttribute(name = "product", binding = false) Product product,
             @Valid UpdateProductPayload payload,
-            BindingResult bindingResult, Model model) {//pzdc ска BindingResult 
-                                                      //должен идти сразу после
-                                                     //@Valid в параметрах
-                                                    // (у меня была Model между ними)
+            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("payload", payload);
             model.addAttribute("errors", bindingResult.getAllErrors().stream()
