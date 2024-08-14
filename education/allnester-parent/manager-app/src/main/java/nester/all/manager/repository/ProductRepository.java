@@ -14,5 +14,7 @@ import nester.all.manager.entity.Product;
 public interface ProductRepository {
 
     public List<Product> findAll();
+
+    public Product save(Product product);
     
 }

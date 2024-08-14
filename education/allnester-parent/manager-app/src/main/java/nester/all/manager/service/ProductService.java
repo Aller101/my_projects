@@ -14,5 +14,7 @@ import nester.all.manager.entity.Product;
 public interface ProductService {
 
     public List<Product> findAllProducts();
+
+    public Product createProduct(String title, String details);
     
 }

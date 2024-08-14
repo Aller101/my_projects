@@ -5,6 +5,7 @@
 package nester.all.manager.repository;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -26,6 +27,16 @@ public class InMemoryProductRepository implements ProductRepository {
     @Override
     public List<Product> findAll() {
         return Collections.unmodifiableList(this.products);
+    }
+
+    @Override
+    public Product save(Product product) {
+        product.setId(this.products.stream()
+                .max(Comparator.comparingInt(Product::getId))
+                .map(Product::getId)
+                .orElse(0) + 1);
+        this.products.add(product);
+        return product;
     }
 
 }
